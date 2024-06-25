@@ -1,10 +1,10 @@
 import React from 'react'
+
+// components
 import Search from './search/Search'
 import SideBar from './sideBar/SideBar'
 import Products from './products/Products'
 import Pagenation from './pagenation/Pagenation'
-
-// assets
 
 
 const Bikes = () => {

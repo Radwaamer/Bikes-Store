@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+// components
+import BikesCart from './bikesCart/BikesCart';
+
 // assets
 import Logo from 'assets/Logo.png';
 import Login from 'assets/icons/login.png';
-import Compare from 'assets/icons/compare.png';
 
 // styles
 import styles from './styles.module.css';
@@ -28,10 +30,7 @@ const Header = () => {
                     </ul>
                     <div className='flex items-center gap-6'>
                         <Link to={""}><img className='w-7' src={Login} alt="" /></Link>
-                        <Link className='relative' to={""}>
-                            <img className='w-7' src={Compare} alt="" /> 
-                            <span className='text-sm rounded-full bg-blue py-1 px-2 absolute -top-[105%] -right-[30%]'>1</span>
-                        </Link>
+                        <BikesCart />
                     </div>
                 </div>
             </div>

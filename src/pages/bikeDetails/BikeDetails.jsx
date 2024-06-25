@@ -1,23 +1,35 @@
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+// actions
+import { getBike } from 'store/bikes/act/actGetBikeByID';
+
+
+// components
 import DetailsBox from 'components/ODD/DetailsBox';
 import DetailsTitle from 'components/titles/DetailsTitle';
 import Slider from 'components/sliders/Slider';
-import React from 'react'
 
 // assets
-import Engine from 'assets/carDetails/engine.svg';
-import Mileage from 'assets/carDetails/mileage.svg';
-import Fuel from 'assets/carDetails/fuel_tank.svg';
-import Gears from 'assets/carDetails/gears.svg';
-import Brakes from 'assets/carDetails/brake.svg';
-import Mechanism from 'assets/carDetails/starting-mechanism.svg';
-import Wheel from 'assets/carDetails/wheel.svg';
-import Body from 'assets/carDetails/class.svg';
 
 import Star from 'assets/icons/star.png';
 import Like from 'assets/icons/like.svg';
 import DisLike from 'assets/icons/dis_like.svg';
+import Landing from './components/Landing';
+import Overview from './components/Overview';
+import Prices from './components/Prices';
+
 
 const BikeDetails = () => {
+
+    const params=useParams();
+    const dispatch= useDispatch();
+    const {selectedBike}= useSelector(state=>state.bikes);
+
+    useEffect(() => {
+        dispatch(getBike(params.id));
+    }, [dispatch])
 
     const images=[
         'https://radwaamer.sirv.com/bikes/bike1/1-1.webp',
@@ -28,122 +40,14 @@ const BikeDetails = () => {
     ]
 
     return (
+        <>
+        {Object.keys(selectedBike).length>0 && 
         <div>
-            <div className='h-[45vh] relative'>
-                <img className='w-full h-full' src={"https://radwaamer.sirv.com/bikes/bike1/1.webp"} alt="" />
-                <div className='absolute bottom-0 left-0 w-full'>
-                    <div className="container">
-                        <h1 className='text-4xl mb-3 font-bold'>Hero XPulse 200 4V</h1>
-                        <p className='text-2xl font-semibold text-blue'>₹ 1.44 - 1.51</p>
-                        <button className='py-2 px-6 mt-5 rounded-3xl bg-blue text-black-color font-bold hover:bg-white-color transition-all'>Compare</button>
-                    </div>
-                </div>
-            </div>
+            <Landing info={selectedBike}/>
             <div className='container'>
                 <div className="grid grid-cols-12 gap-8">
-                    <div className='col-span-8'>
-                        <DetailsTitle />
-                        <DetailsBox>
-                            <div className='grid grid-cols-3 gap-4'>
-                                <div className='flex gap-4'>
-                                    <img className="w-8" src={Engine} alt="" />
-                                    <div>
-                                        <span className='text-gray text-sm'>Engine Capacity</span>
-                                        <p>199.6 CC</p>
-                                    </div>
-                                </div>
-                                <div className='flex gap-4'>
-                                    <img className="w-8" src={Mileage} alt="" />
-                                    <div>
-                                        <span className='text-gray text-sm'>Mileage</span>
-                                        <p>40 KM/L</p>
-                                    </div>
-                                </div>
-                                <div className='flex gap-4'>
-                                    <img className="w-8" src={Fuel} alt="" />
-                                    <div>
-                                        <span className='text-gray text-sm'>Fuel Tank Capacity</span>
-                                        <p>13.0 L</p>
-                                    </div>
-                                </div>
-                                <div className='flex gap-4'>
-                                    <img className="w-8" src={Gears} alt="" />
-                                    <div>
-                                        <span className='text-gray text-sm'>Gears</span>
-                                        <p>5 Speed</p>
-                                    </div>
-                                </div>
-                                <div className='flex gap-4'>
-                                    <img className="w-8" src={Brakes} alt="" />
-                                    <div>
-                                        <span className='text-gray text-sm'>Brakes</span>
-                                        <p>Disc/Disc</p>
-                                    </div>
-                                </div>
-                                <div className='flex gap-4'>
-                                    <img className="w-8" src={Mechanism} alt="" />
-                                    <div>
-                                        <span className='text-gray text-sm'>Starting Mechanism</span>
-                                        <p>Self / Kick Start</p>
-                                    </div>
-                                </div>
-                                <div className='flex gap-4'>
-                                    <img className="w-8" src={Wheel} alt="" />
-                                    <div>
-                                        <span className='text-gray text-sm'>Wheel Type</span>
-                                        <p>Spoke Wheels</p>
-                                    </div>
-                                </div>
-                                <div className='flex gap-4'>
-                                    <img className="w-8" src={Body} alt="" />
-                                    <div>
-                                        <span className='text-gray text-sm'>Body Type</span>
-                                        <p>Off Road</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </DetailsBox>
-                    </div>
-                    <div className="col-span-4">
-                        <DetailsTitle />
-                        <p className='text-gray text-sm mb-4'>Explore Hero XPulse 200 4V pricing in India's major cities. Hero XPulse 200 4V price starts from 1.44 Lakh.</p>
-                        <DetailsBox>
-                            <table className='w-full'>
-                                <thead>
-                                    <tr className='text-sm text-gray text-left'>
-                                        <th>City</th>
-                                        <th>On-Road Price</th> 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td className='py-2 pr-2'>New Delhi</td>
-                                        <td className='p-2 pr-2'>₹ 1,51,878</td>
-                                    </tr>
-                                    <tr>
-                                        <td className='py-2 pr-2'>New Delhi</td>
-                                        <td className='p-2 pr-2'>₹ 1,51,878</td>
-                                    </tr>
-                                    <tr>
-                                        <td className='py-2 pr-2'>New Delhi</td>
-                                        <td className='p-2 pr-2'>₹ 1,51,878</td>
-                                    </tr>
-                                    <tr>
-                                        <td className='py-2 pr-2'>New Delhi</td>
-                                        <td className='p-2 pr-2'>₹ 1,51,878</td>
-                                    </tr>
-                                    <tr>
-                                        <td className='py-2 pr-2'>New Delhi</td>
-                                        <td className='p-2 pr-2'>₹ 1,51,878</td>
-                                    </tr>
-                                    <tr>
-                                        <td className='py-2 pr-2'>New Delhi</td>
-                                        <td className='p-2 pr-2'>₹ 1,51,878</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </DetailsBox>
-                    </div>
+                    <Overview info={selectedBike}/>
+                    <Prices info={selectedBike}/>
                     <div className="col-span-8">
                         <DetailsTitle />
                         <DetailsBox>
@@ -291,6 +195,8 @@ const BikeDetails = () => {
                 </div>
             </div>
         </div>
+        }
+        </>
     )
 }
 

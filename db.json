@@ -1,7 +1,7 @@
 {
-    "cars":[
+    "bikes":[
         {
-            "id":1,
+            "id":"1",
             "name":"Hero XPulse 200 4V",
             "Engine Capacity":"199.6 CC",
             "Mileage":"40 KM/L",
@@ -12,7 +12,8 @@
             "Wheel Type":"Spoke Wheels",
             "Body Type":"Off Road",
             "description":"The Hero XPulse 200 is an adventure motorcycle that was launched in India in 2019. It is designed to provide a thrilling riding experience both on and off the road, making it a popular choice among adventure enthusiasts. The XPulse 200 features a rugged and robust design, with high ground clearance and long-travel suspension to tackle rough terrains with ease. It is equipped with a powerful 200cc, air-cooled engine that delivers a good balance of power and efficiency. The engine is mated to a 5-speed gearbox, providing smooth gear shifts and optimal performance in various riding conditions. With its off-road-friendly features, the XPulse 200 is well-equipped to handle adventure trails. It comes with knobby tires for superior traction, a high-mounted exhaust for better water wading capability, and a protective skid plate to shield the engine from obstacles.",
-            "image":"https://radwaamer.sirv.com/bikes/bike1/1.webp",
+            "cover image":"https://radwaamer.sirv.com/bikes/bike1/1.webp",
+            "small image":"https://radwaamer.sirv.com/bikes/bike1/1-sm.jpeg",
             "price":{
                 "start":"₹ 1.44",
                 "end":"₹ 1.51"
@@ -107,5 +108,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "categories":["Hero","Royal","Bajaj","Yamaha","Honda","TVS","Kawasaki","Suzuki","KTM"]
 }
