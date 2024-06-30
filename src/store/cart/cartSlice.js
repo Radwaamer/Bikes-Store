@@ -4,9 +4,14 @@ const cartSlice=createSlice({
     name:"cart",
     initialState:{cart:[],loading:false,error:null},
     reducers:{
-        cartHandeler(state,action){
-            state.cart.push(action.payload);
-        }
+        cartHandeler:(state,action)=>{
+            if(action.payload.compare){
+                state.cart=state.cart.filter(item=>item.id!=action.payload.info.id);
+            }else{
+                state.cart.push(action.payload.info);
+            }
+        },
+
     }
 });
 

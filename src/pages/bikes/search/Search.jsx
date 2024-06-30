@@ -15,6 +15,7 @@ const Search = () => {
     const handleSubmit=(e)=>{
         e.preventDefault();
         dispatch(searchBikes(searchInput.current.value));
+        searchInput.current.value="";
     }
 
     return (

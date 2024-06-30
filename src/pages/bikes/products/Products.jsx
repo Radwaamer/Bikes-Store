@@ -13,10 +13,11 @@ const Products = () => {
     useEffect(() => {dispatch(fetchBikes())},[dispatch]);
     
     const {bikes}=useSelector(state=>state.bikes);
+    const {current,productsPerPage}=useSelector(state=>state.pagination);
 
     return (
         <div className='mt-12 grid grid-cols-3 gap-8'>
-            {bikes && bikes.map(bike=><ProductCard key={bike.id} product={bike}/>)}
+            {bikes && bikes.slice((current-1)*productsPerPage,current*productsPerPage).map(bike=><ProductCard key={bike.id} product={bike}/>)}
         </div>
     )
 }

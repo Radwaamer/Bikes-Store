@@ -3,7 +3,7 @@ import { getPrevBikes } from "store/bikes/act/actGetPrevBikes";
 import { filterByCategory } from "store/bikes/bikeSlice";
 import { deselectCategory, selectCategory } from 'store/categories/categorySlice';
 
-export const filterCategories=createAsyncThunk('category/selectCategory',async({category,select},thunkAPI)=>{
+export const filterCategories=createAsyncThunk('category/filterCategory',async({category,select},thunkAPI)=>{
     const {dispatch, getState}=thunkAPI;
     select? dispatch(selectCategory(category)): dispatch(deselectCategory(category));
     await dispatch(getPrevBikes());

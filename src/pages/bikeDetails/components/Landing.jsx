@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 // actions
 import { cartHandeler } from 'store/cart/cartSlice';
 
+// custom hooks
+import useCompare from 'hooks/useCompare';
+
+
 const Landing = ({info}) => {
 
+    const [compare,setCompare]=useState(false)
     const dispatch=useDispatch();
+
+    useCompare(info,setCompare);
 
     return (
         <div className='h-[45vh] relative'>
@@ -15,9 +22,14 @@ const Landing = ({info}) => {
                 <div className="container">
                     <h1 className='text-4xl mb-3 font-bold'>{info.name}</h1>
                     <p className='text-2xl font-semibold text-blue'>{info.price.start} - {info.price.end}</p>
-                    <button onClick={()=>dispatch(cartHandeler(info))} 
-                    className='py-2 px-6 mt-5 rounded-3xl bg-blue text-black-color 
-                    font-bold hover:bg-white-color transition-all'>Compare</button>
+                    <button onClick={()=>{
+                        dispatch(cartHandeler({info,compare}))
+                        setCompare(!compare);
+                    }} 
+                    className={`py-2 px-6 mt-5 rounded-3xl bg-blue text-black-color 
+                    font-bold hover:bg-white-color ${compare?"bg-white-color":""} transition-all`}>
+                        {compare?"Compared":"Compare"}
+                    </button>
                 </div>
             </div>
         </div>

@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
+
 import { fetchBikes } from "./act/actGetBikes";
 import { getBike } from "./act/actGetBikeByID";
 import { getPrevBikes } from "./act/actGetPrevBikes";
 import { searchBikes } from "./act/actSearchBikes";
+import { translateInfo } from "./act/actTranslateInfo";
 
 const bikeSlice=createSlice({
     name:"bike",
@@ -83,6 +85,20 @@ const bikeSlice=createSlice({
             state.bikes=state.bikes.filter(bike=>bike.name.toLowerCase().includes(action.payload.toLowerCase()));
         });
         builder.addCase(searchBikes.rejected,(state,action)=>{
+            state.loading=false;
+            state.error=action.payload;
+        });
+
+        // translate bike info
+        builder.addCase(translateInfo.pending,(state)=>{
+            state.loading=true;
+            state.error=null;
+        });
+        builder.addCase(translateInfo.fulfilled,(state,action)=>{
+            state.loading=false;
+            state.selectedBike=action.payload;
+        });
+        builder.addCase(translateInfo.rejected,(state,action)=>{
             state.loading=false;
             state.error=action.payload;
         });

@@ -57,13 +57,15 @@
                 }
             ],
             "expert review":{
-                "design":8.5,
-                "Safety":8.0,
-                "Comfort":8.5,
-                "Performance":8.0,
-                "Significance":9.5,
-                "Value For Money":8.8,
-                "Fuel Consumption":8.8,
+                "rating":{
+                    "design":8.5,
+                    "Safety":8.0,
+                    "Comfort":8.5,
+                    "Performance":8.0,
+                    "Significance":9.5,
+                    "Value For Money":8.8,
+                    "Fuel Consumption":8.8
+                },
                 "pros":[
                     "Comfortable ergonomics",
                     "Refined engine",

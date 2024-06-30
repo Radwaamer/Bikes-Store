@@ -4,7 +4,7 @@ import React from 'react'
 import Search from './search/Search'
 import SideBar from './sideBar/SideBar'
 import Products from './products/Products'
-import Pagenation from './pagenation/Pagenation'
+import Pagination from './pagination/Pagination'
 
 
 const Bikes = () => {
@@ -17,7 +17,7 @@ const Bikes = () => {
                 <div className="container">
                     <Search />
                     <Products />
-                    <Pagenation/>
+                    <Pagination/>
                 </div>
             </section>
         </div>
