@@ -32,7 +32,7 @@ const BikeDetails = () => {
             <Landing info={selectedBike}/>
             <div className='container'>
                 <div className="grid grid-cols-12 gap-8">
-                    {/* <button onClick={()=>dispatch(translateInfo(selectedBike))}>hiii</button> */}
+                    {/* <button onClick={()=>dispatch(translateInfo({...selectedBike,["expert review"]:{}}))}>hiii</button> */}
                     <Overview info={selectedBike}/>
                     <Prices info={selectedBike}/>
                     <ExpertReview info={selectedBike}/>

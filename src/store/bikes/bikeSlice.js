@@ -97,10 +97,12 @@ const bikeSlice=createSlice({
         builder.addCase(translateInfo.fulfilled,(state,action)=>{
             state.loading=false;
             state.selectedBike=action.payload;
+            console.log("hi")
         });
         builder.addCase(translateInfo.rejected,(state,action)=>{
             state.loading=false;
             state.error=action.payload;
+            console.log("bye")
         });
 
     }

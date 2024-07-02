@@ -10,11 +10,18 @@ const cartSlice=createSlice({
             }else{
                 state.cart.push(action.payload.info);
             }
+            localStorage.setItem("cart",JSON.stringify(state.cart));
         },
+
+        setCart:(state,action)=>{
+            state.cart=action.payload;
+            localStorage.setItem("cart",JSON.stringify(state.cart));
+        }
 
     }
 });
 
 export const {cartHandeler}=cartSlice.actions;
+export const {setCart}=cartSlice.actions;
 
 export default cartSlice.reducer;

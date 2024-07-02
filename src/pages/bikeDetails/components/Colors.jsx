@@ -8,7 +8,7 @@ import Slider from 'components/sliders/Slider';
 const Colors = ({info}) => {
     return (
         <div className='mt-16'>
-                    <DetailsTitle>{info.name} Colours</DetailsTitle>
+                    <DetailsTitle>{info.name} Colors</DetailsTitle>
                     <p className='text-gray text-sm mb-4'>{info.name} is available in {info.colors.length} different colors.</p>
                     <Slider>
                         {info.colors.map((color,index)=>{
